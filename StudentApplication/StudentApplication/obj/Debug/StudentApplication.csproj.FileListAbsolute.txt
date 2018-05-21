@@ -93,3 +93,5 @@ F:\Asp opdracht\StudentApplication\StudentApplication\bin\System.ValueTuple.xml
 F:\Asp opdracht\StudentApplication\StudentApplication\bin\Domain.dll
 F:\Asp opdracht\StudentApplication\StudentApplication\bin\Domain.pdb
 F:\Asp opdracht\StudentApplication\StudentApplication\bin\Domain.dll.config
+F:\Asp opdracht\StudentApplication\StudentApplication\obj\Debug\StudentApplication.Migrations.role.resources
+F:\Asp opdracht\StudentApplication\StudentApplication\obj\Debug\StudentApplication.csproj.GenerateResource.Cache
