@@ -13,22 +13,27 @@ namespace Domain.Concrete
 
         public void AddStudent(Student student)
         {
-            throw new NotImplementedException();
+            context.Students.Add(student);
+            context.SaveChanges();
         }
 
         public void DeleteStudent(Student student)
         {
-            throw new NotImplementedException();
+            context.Students.Remove(student);
+            context.SaveChanges();
         }
 
-        public Student GetStudent(Student student)
+        public Student GetStudent(string email)
         {
-            throw new NotImplementedException();
+            Student student = context.Students.Where(x => x.Email == email).FirstOrDefault();
+            return student;
         }
 
         public void UpdateStudent(Student student)
         {
-            throw new NotImplementedException();
+            Student dbEntry = context.Students.Find(student.Email);
+            context.Entry(dbEntry).CurrentValues.SetValues(student);
+            context.SaveChanges();
         }
     }
 }

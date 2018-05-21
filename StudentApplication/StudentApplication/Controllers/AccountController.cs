@@ -154,12 +154,6 @@ namespace StudentApplication.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            List<SelectListItem> list = new List<SelectListItem>();
-            foreach (var role in RoleManager.Roles)
-            {
-                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
-            }
-            ViewBag.Roles = list;
             return View();
         }
 
@@ -185,7 +179,7 @@ namespace StudentApplication.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("StepTwo", "AccountStudent");
                 }
                 AddErrors(result);
             }
@@ -443,6 +437,18 @@ namespace StudentApplication.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        public ActionResult AddRole()
+        {
+            UserManager.AddToRole(User.Identity.GetUserId(), "Registered");
+            UserManager.RemoveFromRole(User.Identity.GetUserId(), "Registration");
+            var userId = User.Identity.GetUserId();
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
+            var user = UserManager.FindById(userId);
+            var identity = UserManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
+            return RedirectToAction("Index", "Home");
         }
 
         #region Helpers

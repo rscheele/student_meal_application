@@ -9,7 +9,7 @@ namespace Domain.Abstract
     public interface IStudentRepository
     {
         void AddStudent(Student student);
-        Student GetStudent(Student student);
+        Student GetStudent(string email);
         void DeleteStudent(Student student);
         void UpdateStudent(Student student);
     }

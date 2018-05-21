@@ -13,6 +13,7 @@ namespace StudentApplication.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Registration")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,6 +21,7 @@ namespace StudentApplication.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Registered")]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
