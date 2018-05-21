@@ -20,7 +20,7 @@ namespace Domain.Entities
         public DateTime MealDateTime { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Cook { get; set; }
+        public Student Cook { get; set; }
         public int MaxGuests { get; set; }
         public decimal Price { get; set; }
     }
