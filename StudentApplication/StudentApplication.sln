@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentApplication", "StudentApplication\StudentApplication.csproj", "{D1181D74-D513-42C6-A85A-E0914DC4598A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C459CF0-19E8-4399-875D-BE49F073B391} = {3C459CF0-19E8-4399-875D-BE49F073B391}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3C459CF0-19E8-4399-875D-BE49F073B391}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{84DAB079-B8FC-47AB-B99C-ED8500B34D27}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D1181D74-D513-42C6-A85A-E0914DC4598A} = {D1181D74-D513-42C6-A85A-E0914DC4598A}
+		{3C459CF0-19E8-4399-875D-BE49F073B391} = {3C459CF0-19E8-4399-875D-BE49F073B391}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

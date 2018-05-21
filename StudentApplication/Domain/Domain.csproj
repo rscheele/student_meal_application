@@ -101,17 +101,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Abstract\IMealRepository.cs" />
+    <Compile Include="Abstract\IStudentMealRepository.cs" />
+    <Compile Include="Abstract\IStudentRepository.cs" />
+    <Compile Include="Concrete\MealRepository.cs" />
+    <Compile Include="Concrete\EFDBContextStudent.cs" />
+    <Compile Include="Concrete\StudentMealRepository.cs" />
+    <Compile Include="Concrete\StudentRepository.cs" />
+    <Compile Include="Entities\Meal.cs" />
+    <Compile Include="Entities\StudentMeal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

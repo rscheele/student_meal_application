@@ -90,3 +90,6 @@ F:\Asp opdracht\StudentApplication\StudentApplication\bin\Ninject.Web.Mvc.xml
 F:\Asp opdracht\StudentApplication\StudentApplication\bin\System.Diagnostics.DiagnosticSource.xml
 F:\Asp opdracht\StudentApplication\StudentApplication\bin\System.Threading.Tasks.Extensions.xml
 F:\Asp opdracht\StudentApplication\StudentApplication\bin\System.ValueTuple.xml
+F:\Asp opdracht\StudentApplication\StudentApplication\bin\Domain.dll
+F:\Asp opdracht\StudentApplication\StudentApplication\bin\Domain.pdb
+F:\Asp opdracht\StudentApplication\StudentApplication\bin\Domain.dll.config
