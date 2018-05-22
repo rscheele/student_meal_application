@@ -16,11 +16,13 @@ namespace Domain.Entities
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int MealId { get; set; }
         public DateTime MealDateTime { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Student Cook { get; set; }
+        public int StudentId { get; set; }
+        [ForeignKey("StudentId")]
+        public virtual Student Cook { get; set; }
         public int MaxGuests { get; set; }
         public decimal Price { get; set; }
         public int CurrentGuests { get; set; }

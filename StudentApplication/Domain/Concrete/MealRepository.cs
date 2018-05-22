@@ -26,7 +26,7 @@ namespace Domain.Concrete
 
         public Meal GetMeal(int mealId)
         {
-            Meal meal = context.Meals.Where(x => x.Id == mealId).FirstOrDefault();
+            Meal meal = context.Meals.Where(x => x.MealId == mealId).FirstOrDefault();
             return meal;
         }
 
@@ -38,7 +38,7 @@ namespace Domain.Concrete
 
         public void UpdateMeal(Meal meal)
         {
-            Meal dbEntry = context.Meals.Find(meal.Id);
+            Meal dbEntry = context.Meals.Find(meal.MealId);
             context.Entry(dbEntry).CurrentValues.SetValues(meal);
             context.SaveChanges();
         }

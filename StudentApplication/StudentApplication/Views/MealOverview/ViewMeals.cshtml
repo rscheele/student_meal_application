@@ -71,7 +71,7 @@
                         @meal.Price
                     </td>
                     <td>
-                        
+                        @meal.Cook.Name
                     </td>
                     <td>
                         @meal.CurrentGuests / @meal.MaxGuests
@@ -79,7 +79,7 @@
                     <td>
                         @if (ViewContext.HttpContext.User.IsInRole("Registered"))
                         {
-                            <button class="btn btn-danger" type="button" onclick="location.href = '@Url.Action("JoinMeal", "MealOverview", new { id = meal.Id }, null)'">Inschrijven</button>
+                            <button class="btn btn-danger" type="button" onclick="location.href = '@Url.Action("JoinMeal", "MealOverview", new { id = meal.MealId }, null)'">Inschrijven</button>
                         }
                     </td>
                 </tr>

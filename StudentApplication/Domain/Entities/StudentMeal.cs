@@ -16,9 +16,13 @@ namespace Domain.Entities
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public Meal Meal { get; set; }
-        public Student Student { get; set; }
+        public int StudentMealId { get; set; }
+        public int MealId { get; set; }
+        [ForeignKey("MealId")]
+        public virtual Meal Meal { get; set; }
+        public int StudentId { get; set; }
+        [ForeignKey("StudentId")]
+        public virtual Student Student { get; set; }
         public bool Cook { get; set; }
     }
 }
