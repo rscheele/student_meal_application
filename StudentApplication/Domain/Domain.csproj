@@ -104,7 +104,6 @@
     <Compile Include="Abstract\IMealRepository.cs" />
     <Compile Include="Abstract\IStudentMealRepository.cs" />
     <Compile Include="Abstract\IStudentRepository.cs" />
-    <Compile Include="Concrete\DataInitializer.cs" />
     <Compile Include="Concrete\MealRepository.cs" />
     <Compile Include="Concrete\EFDBContextStudent.cs" />
     <Compile Include="Concrete\StudentMealRepository.cs" />

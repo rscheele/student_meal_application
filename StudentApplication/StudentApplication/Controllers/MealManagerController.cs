@@ -25,17 +25,18 @@ namespace StudentApplication.Controllers
         public ActionResult CreateMeal(DateTime dateTime)
         {
             ViewBag.dateTime = dateTime;
+            TempData["DateTime"] = dateTime;
             return View();
         }
 
         [HttpPost]
-        public ActionResult CreateMeal(Meal meal, DateTime dateTime)
+        public ActionResult CreateMeal(Meal meal)
         {
             string userName = User.Identity.Name;
             Student student = studentRepository.GetStudent(userName);
             meal.CurrentGuests = 1;
             meal.Cook = student;
-            meal.MealDateTime = dateTime;
+            meal.MealDateTime = (DateTime)TempData["DateTime"];
             mealRepository.AddMeal(meal);
             return RedirectToAction("ViewMeals", "MealOverview");
         }
