@@ -18,10 +18,8 @@ namespace Domain.Entities
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int StudentMealId { get; set; }
         public int MealId { get; set; }
-        [ForeignKey("MealId")]
-        public virtual Meal Meal { get; set; }
-        public int StudentId { get; set; }
-        [ForeignKey("StudentId")]
+        public int StudentID { get; set; }
+        [ForeignKey("StudentID")]
         public virtual Student Student { get; set; }
         public bool Cook { get; set; }
     }
