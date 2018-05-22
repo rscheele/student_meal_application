@@ -14,22 +14,33 @@ namespace Domain.Concrete
 
         public void AddMeal(Meal meal)
         {
-            throw new NotImplementedException();
+            context.Meals.Add(meal);
+            context.SaveChanges();
         }
 
         public void DeleteMeal(Meal meal)
         {
-            throw new NotImplementedException();
+            context.Meals.Remove(meal);
+            context.SaveChanges();
         }
 
-        public Meal GetMeal(Meal meal)
+        public Meal GetMeal(int mealId)
         {
-            throw new NotImplementedException();
+            Meal meal = context.Meals.Where(x => x.Id == mealId).FirstOrDefault();
+            return meal;
+        }
+
+        public IEnumerable<Meal> GetMeals(DateTime startDateTime, DateTime endDateTime)
+        {
+            IEnumerable<Meal> meals = context.Meals.Where(x => x.MealDateTime >= startDateTime && x.MealDateTime <= endDateTime);
+            return meals;
         }
 
         public void UpdateMeal(Meal meal)
         {
-            throw new NotImplementedException();
+            Meal dbEntry = context.Meals.Find(meal.Id);
+            context.Entry(dbEntry).CurrentValues.SetValues(meal);
+            context.SaveChanges();
         }
     }
 }

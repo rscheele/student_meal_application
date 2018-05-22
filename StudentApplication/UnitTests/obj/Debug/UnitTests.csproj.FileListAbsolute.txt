@@ -1,2 +1,0 @@
-F:\Asp opdracht\StudentApplication\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
-F:\Asp opdracht\StudentApplication\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache

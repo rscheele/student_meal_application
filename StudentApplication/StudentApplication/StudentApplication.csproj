@@ -218,6 +218,9 @@
     <Compile Include="Controllers\AccountStudentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MealManagerController.cs" />
+    <Compile Include="Models\MealModel.cs" />
+    <Compile Include="Controllers\MealOverviewController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -296,6 +299,8 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\AccountStudent\StepTwo.cshtml" />
+    <Content Include="Views\MealOverview\ViewMeals.cshtml" />
+    <Content Include="Views\MealManager\CreateMeal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

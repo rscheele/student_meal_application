@@ -10,7 +10,8 @@ namespace Domain.Abstract
     public interface IMealRepository
     {
         void AddMeal(Meal meal);
-        Meal GetMeal(Meal meal);
+        Meal GetMeal(int mealId);
+        IEnumerable<Meal> GetMeals(DateTime startDateTime, DateTime endDateTime);
         void DeleteMeal(Meal meal);
         void UpdateMeal(Meal meal);
     }

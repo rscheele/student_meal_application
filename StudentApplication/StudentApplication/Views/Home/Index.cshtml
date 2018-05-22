@@ -1,4 +1,6 @@
-﻿@{
+﻿@model StudentApplication.Models.MealModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -10,19 +12,13 @@
         <p>Je registratie is nog niet compleet! Maak eerst je registratie af.</p>
         <button class="btn btn-danger" type="button" style="padding:8px; margin-top:8px; margin-right:16px" onclick="location.href = '@Url.Action("StepTwo", "AccountStudent", new { title = "Stap 2" })'">Maak registratie compleet</button>
     }
-</div>
-
-<div class="row">
     @if (!ViewContext.HttpContext.Request.IsAuthenticated)
     {
-        <p>Je bent niet ingelogd!</p>
-    }
-    @if (ViewContext.HttpContext.User.IsInRole("Registration"))
-    {
-        <p>Je bent nog niet klaar met je registratie!</p>
+        <p><b>Je bent niet ingelogd !</b></p>
     }
     @if (ViewContext.HttpContext.User.IsInRole("Registered"))
     {
-        <p>Je bent geregistreerd!</p>
+        <p><b>Je bent geregistreerd!</b></p>
     }
+    <button class="btn btn-danger" type="button" style="padding:8px; margin-top:8px; margin-right:16px" onclick="location.href = '@Url.Action("ViewMeals", "MealOverview", new { title = "Maaltijdoverzicht" })'">Maaltijdoverzicht</button>
 </div>

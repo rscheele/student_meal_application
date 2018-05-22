@@ -23,5 +23,6 @@ namespace Domain.Entities
         public Student Cook { get; set; }
         public int MaxGuests { get; set; }
         public decimal Price { get; set; }
+        public int CurrentGuests { get; set; }
     }
 }

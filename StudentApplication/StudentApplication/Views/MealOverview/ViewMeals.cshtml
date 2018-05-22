@@ -1,0 +1,91 @@
+﻿@model StudentApplication.Models.MealModel
+
+@{
+    ViewBag.Title = "ViewMeals";
+}
+
+<body>
+    <h2>ViewMeals</h2>
+
+    <div class="text-center">
+        <table class="table">
+            <tr>
+                <th>
+                    <p>Datum</p>
+                </th>
+                <th>
+                    <p>Naam maaltijd</p>
+                </th>
+                <th>
+                    <p>Prijs</p>
+                </th>
+                <th>
+                    <p>Kok</p>
+                </th>
+                <th>
+                    <p>Inschrijvingen</p>
+                </th>
+                <th>
+                    <p>Inschrijven</p>
+                </th>
+            </tr>
+            @foreach (var date in Model.Dates)
+            {
+                var meal = Model.Meals.Where(x => x.MealDateTime == date).FirstOrDefault();
+                if (meal == null)
+                {
+                <tr>
+                    <td>
+                        @date.Date.ToString("dddd") @date.ToShortDateString()
+                    </td>
+                    <td>
+                        <b>Er is nog geen maaltijd voor deze dag.</b>
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                        @if (ViewContext.HttpContext.User.IsInRole("Registered"))
+                        {
+                            <button class="btn btn-danger" type="button" onclick="location.href = '@Url.Action("CreateMeal", "MealManager", new { dateTime = date })'">Maaltijd maken</button>
+                        }
+                    </td>
+                </tr>
+                }
+                else
+                {
+                <tr>
+                    <td>
+                        @date.Date.ToString("dddd") @date.ToShortDateString()
+                    </td>
+                    <td>
+                        @meal.Name
+                    </td>
+                    <td>
+                        @meal.Price
+                    </td>
+                    <td>
+                        @meal.Cook.Name
+                    </td>
+                    <td>
+                        @meal.CurrentGuests / @meal.MaxGuests
+                    </td>
+                    <td>
+                        @if (ViewContext.HttpContext.User.IsInRole("Registered"))
+                        {
+                            <button class="btn btn-danger" type="button" onclick="location.href = '@Url.Action("JoinMeal", "MealOverview", new { id = meal.Id }, null)'">Inschrijven</button>
+                        }
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+    </div>
+</body>
+
