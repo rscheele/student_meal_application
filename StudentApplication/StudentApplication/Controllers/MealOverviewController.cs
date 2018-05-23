@@ -27,7 +27,7 @@ namespace StudentApplication.Controllers
         public ActionResult ViewMeals()
         {
             DateTime now = DateTime.Now.Date;
-            DateTime twoWeeks = DateTime.Today.AddDays(14);
+            DateTime twoWeeks = DateTime.Today.AddDays(13);
             List<Meal> meals = mealRepository.GetMeals(now, twoWeeks).ToList();
             List<DateTime> dates = new List<DateTime>();
             for (var dt = now; dt <= twoWeeks; dt = dt.AddDays(1))
@@ -43,6 +43,7 @@ namespace StudentApplication.Controllers
             return View(mealModel);
         }
 
+        [Authorize(Roles = "Registered")]
         public ActionResult JoinMeal(int id)
         {
             Meal meal = mealRepository.GetMeal(id);
@@ -50,9 +51,55 @@ namespace StudentApplication.Controllers
             bool exists = studentMealRepository.CheckForExisitingStudentMeal(student.StudentId, meal.MealId);
             if (exists == true)
             {
-                return View();
+                return View("Exists");
             }
-            return View();
+            if (meal.CurrentGuests >= meal.MaxGuests)
+            {
+                return View("Full");
+            }
+            meal.CurrentGuests = meal.CurrentGuests + 1;
+            mealRepository.UpdateMeal(meal);
+            StudentMeal studentMeal = new StudentMeal { MealId = meal.MealId, StudentID = student.StudentId, Cook = false };
+            studentMealRepository.AddStudentMeal(studentMeal);
+            return View("Joined");
+        }
+
+        [Authorize(Roles = "Registered")]
+        public ActionResult DeleteMeal(int id)
+        {
+            Meal meal = mealRepository.GetMeal(id);
+            Student student = studentRepository.GetStudent(User.Identity.Name);
+            if (meal.CurrentGuests >= 2)
+            {
+                return View("ExistingRegistrations");
+            }
+            StudentMeal studentMeal = studentMealRepository.GetStudentMealsForMeal(meal).FirstOrDefault();
+            studentMealRepository.DeleteStudentMeal(studentMeal);
+            mealRepository.DeleteMeal(meal);
+            return View("Deleted");
+        }
+
+        public ActionResult MealInfo(int id)
+        {
+            Meal meal = mealRepository.GetMeal(id);
+            List<StudentMeal> studentMeals = studentMealRepository.GetStudentMealsForMeal(meal).ToList();
+            MealInfoModel mealInfoModel = new MealInfoModel { Meal = meal, StudentMeals = studentMeals };
+            return RedirectToAction("EditMeal", "MealManager", mealInfoModel);
+        }
+
+        [Authorize(Roles = "Registered")]
+        public ActionResult EditMeal(int id)
+        {
+            Meal meal = mealRepository.GetMeal(id);
+            Student student = studentRepository.GetStudent(User.Identity.Name);
+            if (meal.CurrentGuests >= 2)
+            {
+                return View("ExistingRegistrations");
+            }
+            StudentMeal studentMeal = studentMealRepository.GetStudentMealsForMeal(meal).FirstOrDefault();
+            studentMealRepository.DeleteStudentMeal(studentMeal);
+            mealRepository.DeleteMeal(meal);
+            return View("MealInfo");
         }
     }
 }

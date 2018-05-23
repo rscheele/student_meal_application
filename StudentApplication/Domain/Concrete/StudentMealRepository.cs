@@ -33,7 +33,8 @@ namespace Domain.Concrete
 
         public void DeleteStudentMeal(StudentMeal studentMeal)
         {
-            throw new NotImplementedException();
+            context.StudentMeals.Remove(studentMeal);
+            context.SaveChanges();
         }
 
         public StudentMeal GetStudentMeal(StudentMeal studentMeal)
@@ -43,7 +44,8 @@ namespace Domain.Concrete
 
         public IEnumerable<StudentMeal> GetStudentMealsForMeal(Meal meal)
         {
-            throw new NotImplementedException();
+            IEnumerable<StudentMeal> studentMeals = context.StudentMeals.Where(x => x.MealId == meal.MealId);
+            return studentMeals;
         }
 
         public IEnumerable<StudentMeal> GetStudentMealsForStudent(Student student)

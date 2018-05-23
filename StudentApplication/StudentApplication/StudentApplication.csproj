@@ -219,6 +219,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MealManagerController.cs" />
+    <Compile Include="Models\MealInfoModel.cs" />
     <Compile Include="Models\MealModel.cs" />
     <Compile Include="Controllers\MealOverviewController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -306,6 +307,11 @@
     <Content Include="Views\AccountStudent\StepTwo.cshtml" />
     <Content Include="Views\MealOverview\ViewMeals.cshtml" />
     <Content Include="Views\MealManager\CreateMeal.cshtml" />
+    <Content Include="Views\MealOverview\Exists.cshtml" />
+    <Content Include="Views\MealOverview\Full.cshtml" />
+    <Content Include="Views\MealOverview\Joined.cshtml" />
+    <Content Include="Views\MealOverview\ExistingRegistrations.cshtml" />
+    <Content Include="Views\MealOverview\Deleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Domain.Abstract;
 using Domain.Entities;
+using StudentApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace StudentApplication.Controllers
         }
 
         // GET: MealManager
+        [Authorize(Roles = "Registered")]
         [HttpGet]
         public ActionResult CreateMeal(DateTime dateTime)
         {
@@ -31,6 +33,7 @@ namespace StudentApplication.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Registered")]
         [HttpPost]
         public ActionResult CreateMeal(Meal meal)
         {
@@ -50,6 +53,11 @@ namespace StudentApplication.Controllers
             StudentMeal studentMeal = new StudentMeal {MealId = meal.MealId, StudentID = student.StudentId, Cook = true };
             studentMealRepository.AddStudentMeal(studentMeal);
             return RedirectToAction("ViewMeals", "MealOverview");
+        }
+
+        public ActionResult MealInfo(MealInfoModel mealInfoModel)
+        {
+            return View(mealInfoModel);
         }
     }
 }
