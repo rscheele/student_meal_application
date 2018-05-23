@@ -87,8 +87,8 @@
                             {
                                 if (meal.StudentId == Model.Student.StudentId)
                                 {
-                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("EditMeal", "MealOverview", new { id = meal.MealId })'">Wijzigen</button>
-                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("DeleteMeal", "MealOverview", new { id = meal.MealId })'">Verwijderen</button>
+                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("EditMeal", "MealManager", new { id = meal.MealId })'">Wijzigen</button>
+                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("DeleteMeal", "MealManager", new { id = meal.MealId })'">Verwijderen</button>
                                 }
                                 else if (Model.StudentMeals.Where(x => x.MealId == meal.MealId).FirstOrDefault() == null)
                                 {

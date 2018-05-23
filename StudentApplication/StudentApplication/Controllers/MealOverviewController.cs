@@ -79,35 +79,5 @@ namespace StudentApplication.Controllers
             studentMealRepository.DeleteStudentMeal(student.StudentId, meal.MealId);
             return View("Removed");
         }
-
-        [Authorize(Roles = "Registered")]
-        public ActionResult DeleteMeal(int id)
-        {
-            Meal meal = mealRepository.GetMeal(id);
-            Student student = studentRepository.GetStudent(User.Identity.Name);
-            if (meal.CurrentGuests >= 2)
-            {
-                return View("ExistingRegistrations");
-            }
-            StudentMeal studentMeal = studentMealRepository.GetStudentMealsForMeal(meal).FirstOrDefault();
-            studentMealRepository.DeleteStudentMeal(studentMeal);
-            mealRepository.DeleteMeal(meal);
-            return View("Deleted");
-        }
-
-        [Authorize(Roles = "Registered")]
-        public ActionResult EditMeal(int id)
-        {
-            Meal meal = mealRepository.GetMeal(id);
-            Student student = studentRepository.GetStudent(User.Identity.Name);
-            if (meal.CurrentGuests >= 2)
-            {
-                return View("ExistingRegistrations");
-            }
-            StudentMeal studentMeal = studentMealRepository.GetStudentMealsForMeal(meal).FirstOrDefault();
-            studentMealRepository.DeleteStudentMeal(studentMeal);
-            mealRepository.DeleteMeal(meal);
-            return View("MealInfo");
-        }
     }
 }

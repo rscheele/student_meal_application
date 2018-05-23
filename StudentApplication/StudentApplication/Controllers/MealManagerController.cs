@@ -63,5 +63,47 @@ namespace StudentApplication.Controllers
             MealInfoModel mealInfoModel = new MealInfoModel { Meal = meal, StudentMeals = studentMeals};
             return View(mealInfoModel);
         }
+
+        [Authorize(Roles = "Registered")]
+        [HttpGet]
+        public ActionResult EditMeal(int id)
+        {
+            Meal meal = mealRepository.GetMeal(id);
+            TempData["MealId"] = id;
+            return View(meal);
+        }
+
+        [Authorize(Roles = "Registered")]
+        [HttpPost]
+        public ActionResult EditMeal(Meal meal)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(meal);
+            }
+            int id = (int)TempData["MealId"];
+            Meal originalMeal = mealRepository.GetMeal(id);
+            originalMeal.Name = meal.Name;
+            originalMeal.Price = meal.Price;
+            originalMeal.MaxGuests = meal.MaxGuests;
+            originalMeal.Description = meal.Description;
+            mealRepository.UpdateMeal(originalMeal);
+            return View("Success");
+        }
+
+        [Authorize(Roles = "Registered")]
+        public ActionResult DeleteMeal(int id)
+        {
+            Meal meal = mealRepository.GetMeal(id);
+            Student student = studentRepository.GetStudent(User.Identity.Name);
+            if (meal.CurrentGuests >= 2)
+            {
+                return View("ExistingRegistrations");
+            }
+            StudentMeal studentMeal = studentMealRepository.GetStudentMealsForMeal(meal).FirstOrDefault();
+            studentMealRepository.DeleteStudentMeal(studentMeal);
+            mealRepository.DeleteMeal(meal);
+            return View("Deleted");
+        }
     }
 }

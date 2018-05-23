@@ -311,10 +311,12 @@
     <Content Include="Views\MealOverview\Full.cshtml" />
     <Content Include="Views\MealOverview\Joined.cshtml" />
     <Content Include="Views\MealOverview\ExistingRegistrations.cshtml" />
-    <Content Include="Views\MealOverview\Deleted.cshtml" />
+    <Content Include="Views\MealManager\Deleted.cshtml" />
     <Content Include="Views\MealManager\MealInfo.cshtml" />
     <Content Include="Views\MealOverview\NoMeal.cshtml" />
     <Content Include="Views\MealOverview\Removed.cshtml" />
+    <Content Include="Views\MealManager\EditMeal.cshtml" />
+    <Content Include="Views\MealManager\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
