@@ -13,6 +13,7 @@ namespace Domain.Abstract
         void UpdateStudentMeal(StudentMeal studentMeal);
         StudentMeal GetStudentMeal(StudentMeal studentMeal);
         void DeleteStudentMeal(StudentMeal studentMeal);
+        void DeleteStudentMeal(int studentId, int mealId);
         IEnumerable<StudentMeal> GetStudentMealsForMeal(Meal meal);
         IEnumerable<StudentMeal> GetStudentMealsForStudent(Student student);
         IEnumerable<StudentMeal> GetStudentMealsForStudentCook(Student student);

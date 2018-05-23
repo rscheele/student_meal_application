@@ -37,6 +37,13 @@ namespace Domain.Concrete
             context.SaveChanges();
         }
 
+        public void DeleteStudentMeal(int studentId, int mealId)
+        {
+            StudentMeal studentMeal = context.StudentMeals.Where(x => x.MealId == mealId && x.Student.StudentId == studentId).FirstOrDefault();
+            context.StudentMeals.Remove(studentMeal);
+            context.SaveChanges();
+        }
+
         public StudentMeal GetStudentMeal(StudentMeal studentMeal)
         {
             throw new NotImplementedException();
