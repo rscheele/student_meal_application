@@ -26,7 +26,7 @@ namespace StudentApplication.Controllers
         [HttpGet]
         public ActionResult CreateMeal(DateTime dateTime)
         {
-            ViewBag.dateTime = dateTime;
+            ViewBag.dateTime = dateTime.Date.ToShortDateString();
             TempData["DateTime"] = dateTime;
             return View();
         }
@@ -34,11 +34,18 @@ namespace StudentApplication.Controllers
         [HttpPost]
         public ActionResult CreateMeal(Meal meal)
         {
+            DateTime dateTime = (DateTime)TempData["DateTime"];
+            if (!ModelState.IsValid)
+            {
+                ViewBag.dateTime = dateTime.Date.ToShortDateString();
+                TempData["DateTime"] = dateTime;
+                return View();
+            }
             string userName = User.Identity.Name;
             Student student = studentRepository.GetStudent(userName);
             meal.CurrentGuests = 1;
             meal.Cook = student;
-            meal.MealDateTime = (DateTime)TempData["DateTime"];
+            meal.MealDateTime = dateTime;
             mealRepository.AddMeal(meal);
             StudentMeal studentMeal = new StudentMeal {MealId = meal.MealId, Student = student, Cook = true };
             studentMealRepository.AddStudentMeal(studentMeal);

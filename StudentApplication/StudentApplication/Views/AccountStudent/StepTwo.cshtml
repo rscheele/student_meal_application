@@ -3,26 +3,41 @@
 @{
     ViewBag.Title = "StepTwo";
 }
-
 <body>
     <h2>Registratie - Stap 2</h2>
-    <p>Voer je gebruikersgegevens in om je registratie compleet te maken</p>
-    @using (Html.BeginForm("StepTwo", "AccountStudent", FormMethod.Post))
+    @using (Html.BeginForm("StepTwo", "AccountStudent", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
+        @Html.AntiForgeryToken()
+        <h4>Voer je gebruikersgegevens aan om je registratie compleet te maken.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group">
-            Email: <br />
-            @Html.DisplayFor(x => User.Identity.Name, new { @class = "formcontrol" })
+            <div class="col-md-2 control-label">
+                <b>Email</b>
+            </div>
+            <div class="col-md-10" style="padding-top:6px;">
+                @Html.DisplayFor(x => User.Identity.Name, new { @class = "form-control" })
+            </div>
         </div>
         <div class="form-group">
-            Naam: <br />
-            @Html.TextBoxFor(x => Model.Name, new { @class = "formcontrol" })
+            @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => Model.Name, new { @class = "form-control" })
+            </div>
         </div>
         <div class="form-group">
-            Telefoonnummer: <br />
-            @Html.TextAreaFor(x => Model.Phone, new { @class = "formcontrol" })
+            @Html.LabelFor(m => m.Phone, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => Model.Phone, new { @class = "form-control" })
+            </div>
         </div>
         <br />
-        <input class="btn btn-danger" type="submit" value="Versturen!" />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input class="btn btn-danger" type="submit" value="Versturen!" />
+            </div>
+        </div>
     }
 </body>
 

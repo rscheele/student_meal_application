@@ -14,7 +14,8 @@ namespace Domain.Concrete
 
         public void AddStudentMeal(StudentMeal studentMeal)
         {
-            throw new NotImplementedException();
+            context.StudentMeals.Add(studentMeal);
+            context.SaveChanges();
         }
 
         public void DeleteStudentMeal(StudentMeal studentMeal)
