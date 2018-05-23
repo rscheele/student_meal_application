@@ -7,8 +7,7 @@
 <body>
     <h2>ViewMeals</h2>
 
-    <div class="text-center">
-        <table class="table">
+    <table class="table table-hover table-striped">
             <tr>
                 <th>
                     <p>Datum</p>
@@ -26,7 +25,10 @@
                     <p>Inschrijvingen</p>
                 </th>
                 <th>
-                    <p>Inschrijven</p>
+                    <p>Info</p>
+                </th>
+                <th>
+                    <p>In/Uitschrijven</p>
                 </th>
             </tr>
             @foreach (var date in Model.Dates)
@@ -34,58 +36,60 @@
                 var meal = Model.Meals.Where(x => x.MealDateTime == date).FirstOrDefault();
                 if (meal == null)
                 {
-                <tr>
-                    <td>
-                        @date.Date.ToString("dddd") @date.ToShortDateString()
-                    </td>
-                    <td>
-                        <b>Er is nog geen maaltijd voor deze dag.</b>
-                    </td>
-                    <td>
-                        
-                    </td>
-                    <td>
+                    <tr>
+                        <td>
+                            @date.Date.ToString("dddd") @date.ToShortDateString()
+                        </td>
+                        <td>
+                            <b>Geen maaltijd</b>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
 
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-                        @if (ViewContext.HttpContext.User.IsInRole("Registered"))
-                        {
-                            <button class="btn btn-danger" type="button" onclick="location.href = '@Url.Action("CreateMeal", "MealManager", new { dateTime = date })'">Maaltijd maken</button>
-                        }
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            @if (ViewContext.HttpContext.User.IsInRole("Registered"))
+                            {
+                                <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("CreateMeal", "MealManager", new { dateTime = date })'">Maaltijd maken</button>
+                            }
+                        </td>
+                    </tr>
                 }
                 else
                 {
-                <tr>
-                    <td>
-                        @date.Date.ToString("dddd") @date.ToShortDateString()
-                    </td>
-                    <td>
-                        @meal.Name
-                    </td>
-                    <td>
-                        @meal.Price
-                    </td>
-                    <td>
-                        @meal.Cook.Name
-                    </td>
-                    <td>
-                        @meal.CurrentGuests / @meal.MaxGuests
-                    </td>
-                    <td>
-                        @if (ViewContext.HttpContext.User.IsInRole("Registered"))
-                        {
-                            <button class="btn btn-danger" type="button" onclick="location.href = '@Url.Action("JoinMeal", "MealOverview", new { id = meal.MealId }, null)'">Inschrijven</button>
-                        }
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @date.Date.ToString("dddd") @date.ToShortDateString()
+                        </td>
+                        <td>
+                            @meal.Name
+                        </td>
+                        <td>
+                            € @meal.Price
+                        </td>
+                        <td>
+                            @meal.Cook.Name
+                        </td>
+                        <td>
+                            @meal.CurrentGuests / @meal.MaxGuests
+                        </td>
+                        <td>
+                            @if (ViewContext.HttpContext.User.IsInRole("Registered"))
+                            {
+                                <a href="@Url.Action("Index", "Home")" title="Info"><img src="~/Content/sprite-info.svg"></a>
+                            }
+                        </td>
+                        <td>
+                            @if (ViewContext.HttpContext.User.IsInRole("Registered"))
+                            {
+                                <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("Index", "Home", new { dateTime = date })'">Inschrijven</button>
+                            }
+                        </td>
+                    </tr>
                 }
             }
-        </table>
-    </div>
+    </table>
 </body>
 

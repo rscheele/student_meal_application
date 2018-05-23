@@ -241,6 +241,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\sprite-accept.svg" />
+    <Content Include="Content\sprite-cancel.svg" />
+    <Content Include="Content\sprite-edit.svg" />
+    <Content Include="Content\sprite-info.svg" />
+    <Content Include="Content\sprite-love.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
