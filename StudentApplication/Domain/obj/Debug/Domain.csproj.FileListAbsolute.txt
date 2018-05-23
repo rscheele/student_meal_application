@@ -42,3 +42,4 @@ F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.csproj.CoreCompileInp
 F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.csproj.CopyComplete
 F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.dll
 F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.pdb
+F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
