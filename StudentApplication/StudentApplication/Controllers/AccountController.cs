@@ -13,6 +13,7 @@ using StudentApplication.Models;
 
 namespace StudentApplication.Controllers
 {
+    // Standard functions from Microsoft identity
     [Authorize]
     public class AccountController : Controller
     {
@@ -439,6 +440,7 @@ namespace StudentApplication.Controllers
             base.Dispose(disposing);
         }
 
+        // Custom rolemanager, changes someone who is between step 1 and step 2 of registration to registered role
         [Authorize(Roles = "Registration")]
         public ActionResult AddRole()
         {

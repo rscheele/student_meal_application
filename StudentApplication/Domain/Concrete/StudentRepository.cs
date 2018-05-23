@@ -11,6 +11,7 @@ namespace Domain.Concrete
     {
         private EFDBContextStudent context = new EFDBContextStudent();
 
+        // Add student to database
         public void AddStudent(Student student)
         {
             if (context.Students.Where(x => x.Email == student.Email).FirstOrDefault() == null)
@@ -20,23 +21,11 @@ namespace Domain.Concrete
             }
         }
 
-        public void DeleteStudent(Student student)
-        {
-            context.Students.Remove(student);
-            context.SaveChanges();
-        }
-
+        // Get student from database
         public Student GetStudent(string email)
         {
             Student student = context.Students.Where(x => x.Email == email).FirstOrDefault();
             return student;
-        }
-
-        public void UpdateStudent(Student student)
-        {
-            Student dbEntry = context.Students.Find(student.Email);
-            context.Entry(dbEntry).CurrentValues.SetValues(student);
-            context.SaveChanges();
         }
     }
 }

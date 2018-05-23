@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace StudentApplication.Controllers
 {
+    // Custom controller for role management. Only accessible with Admin authorization. Should not be edited.
     [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {

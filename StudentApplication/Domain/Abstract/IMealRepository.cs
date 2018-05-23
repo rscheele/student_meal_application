@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Abstract
 {
+    // Interface for meal repository
     public interface IMealRepository
     {
         void AddMeal(Meal meal);

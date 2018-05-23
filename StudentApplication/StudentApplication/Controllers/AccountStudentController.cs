@@ -28,6 +28,7 @@ namespace StudentApplication.Controllers
             return View();
         }
 
+        // Creates a student entity and changes the userrole from 'Registration' to 'Registered'
         [HttpPost]
         public ActionResult StepTwo(Student student)
         {

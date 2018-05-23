@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Abstract
 {
+    // Interface for student repository
     public interface IStudentRepository
     {
         void AddStudent(Student student);
         Student GetStudent(string email);
-        void DeleteStudent(Student student);
-        void UpdateStudent(Student student);
     }
 }

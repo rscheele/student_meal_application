@@ -10,6 +10,7 @@ using StudentApplication.Models;
 
 namespace StudentApplication.Controllers
 {
+    // Microsoft identity functions
     [Authorize]
     public class ManageController : Controller
     {

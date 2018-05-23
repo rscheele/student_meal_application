@@ -12,6 +12,13 @@
         <p>De maker heeft als beschrijving meegegeven <b>'@Model.Meal.Description'</b>.</p>
         <p>De maaltijd zal <b>€ @Model.Meal.Price kosten</b>.</p>
         <p>De maaltijd zit vol voor <b>@Model.Meal.CurrentGuests / @Model.Meal.MaxGuests</b> plaatsen.</p>
+        @if (Model.Meal.Cook.Email == User.Identity.Name)
+        {
+            <hr />
+            <p><b>Je bent zelf de kok.</b></p>
+            <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("EditMeal", "MealManager", new { id = Model.Meal.MealId })'">Wijzigen</button>
+            <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("DeleteMeal", "MealManager", new { id = Model.Meal.MealId })'">Verwijderen</button>
+        }
     </div>
     <hr />
     <div class="col-md-12">

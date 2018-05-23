@@ -317,6 +317,7 @@
     <Content Include="Views\MealOverview\Removed.cshtml" />
     <Content Include="Views\MealManager\EditMeal.cshtml" />
     <Content Include="Views\MealManager\Success.cshtml" />
+    <Content Include="Views\MealManager\NoAccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

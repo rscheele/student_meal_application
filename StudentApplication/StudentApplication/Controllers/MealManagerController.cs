@@ -23,7 +23,7 @@ namespace StudentApplication.Controllers
             this.studentMealRepository = studentMealRepository;
         }
 
-        // GET: MealManager
+        // Shows the meal creation form
         [Authorize(Roles = "Registered")]
         [HttpGet]
         public ActionResult CreateMeal(DateTime dateTime)
@@ -33,11 +33,13 @@ namespace StudentApplication.Controllers
             return View();
         }
 
+        // Post the meal creation form
         [Authorize(Roles = "Registered")]
         [HttpPost]
         public ActionResult CreateMeal(Meal meal)
         {
             DateTime dateTime = (DateTime)TempData["DateTime"];
+            // Check for valid modelstate otherwise return the form
             if (!ModelState.IsValid)
             {
                 ViewBag.dateTime = dateTime.Date.ToShortDateString();
@@ -55,6 +57,8 @@ namespace StudentApplication.Controllers
             return RedirectToAction("ViewMeals", "MealOverview");
         }
 
+        // Show meal info
+        [HttpGet]
         public ActionResult MealInfo(int id)
         {
             Meal meal = mealRepository.GetMeal(id);
@@ -64,11 +68,18 @@ namespace StudentApplication.Controllers
             return View(mealInfoModel);
         }
 
+        // Shows the form for editing a meal
         [Authorize(Roles = "Registered")]
         [HttpGet]
         public ActionResult EditMeal(int id)
         {
+            // Check if the person trying to edit it is the cook, if not it will shows noaccess
             Meal meal = mealRepository.GetMeal(id);
+            if (User.Identity.Name != meal.Cook.Email)
+            {
+                return View("NoAccess");
+            }
+            // If people have signed up for your meal you can't edit it anymore
             if (meal.CurrentGuests >= 2)
             {
                 return View("ExistingRegistrations");
@@ -77,12 +88,14 @@ namespace StudentApplication.Controllers
             return View(meal);
         }
 
+        // Posts the form for editing a meal
         [Authorize(Roles = "Registered")]
         [HttpPost]
         public ActionResult EditMeal(Meal meal)
         {
             int id = (int)TempData["MealId"];
             Meal originalMeal = mealRepository.GetMeal(id);
+            // Check if the modelstate is valid otherwise return the form
             if (!ModelState.IsValid)
             {
                 TempData["MealId"] = id;
@@ -96,11 +109,18 @@ namespace StudentApplication.Controllers
             return View("Success");
         }
 
+        // Deletes an existing meal
         [Authorize(Roles = "Registered")]
         public ActionResult DeleteMeal(int id)
         {
             Meal meal = mealRepository.GetMeal(id);
+            // Check if the person trying to edit it is the cook, if not it will shows noaccess
+            if (User.Identity.Name != meal.Cook.Email)
+            {
+                return View("NoAccess");
+            }
             Student student = studentRepository.GetStudent(User.Identity.Name);
+            // If people have signed up for your meal you can't edit it anymore
             if (meal.CurrentGuests >= 2)
             {
                 return View("ExistingRegistrations");

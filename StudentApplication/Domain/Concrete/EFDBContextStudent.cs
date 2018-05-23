@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Concrete
 {
+    // Database context
     public class EFDBContextStudent : DbContext
     {
         public EFDBContextStudent() : base("EFDBContextStudent")
