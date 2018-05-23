@@ -55,8 +55,12 @@ namespace StudentApplication.Controllers
             return RedirectToAction("ViewMeals", "MealOverview");
         }
 
-        public ActionResult MealInfo(MealInfoModel mealInfoModel)
+        public ActionResult MealInfo(int id)
         {
+            Meal meal = mealRepository.GetMeal(id);
+            List<StudentMeal> studentMeals = studentMealRepository.GetStudentMealsForMeal(meal).ToList();
+            List<Student> students = new List<Student>();
+            MealInfoModel mealInfoModel = new MealInfoModel { Meal = meal, StudentMeals = studentMeals};
             return View(mealInfoModel);
         }
     }

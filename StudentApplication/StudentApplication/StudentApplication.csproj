@@ -312,6 +312,7 @@
     <Content Include="Views\MealOverview\Joined.cshtml" />
     <Content Include="Views\MealOverview\ExistingRegistrations.cshtml" />
     <Content Include="Views\MealOverview\Deleted.cshtml" />
+    <Content Include="Views\MealManager\MealInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

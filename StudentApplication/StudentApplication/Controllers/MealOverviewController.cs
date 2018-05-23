@@ -79,14 +79,6 @@ namespace StudentApplication.Controllers
             return View("Deleted");
         }
 
-        public ActionResult MealInfo(int id)
-        {
-            Meal meal = mealRepository.GetMeal(id);
-            List<StudentMeal> studentMeals = studentMealRepository.GetStudentMealsForMeal(meal).ToList();
-            MealInfoModel mealInfoModel = new MealInfoModel { Meal = meal, StudentMeals = studentMeals };
-            return RedirectToAction("EditMeal", "MealManager", mealInfoModel);
-        }
-
         [Authorize(Roles = "Registered")]
         public ActionResult EditMeal(int id)
         {

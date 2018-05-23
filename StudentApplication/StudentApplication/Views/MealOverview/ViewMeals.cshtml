@@ -80,10 +80,7 @@
                             @meal.CurrentGuests / @meal.MaxGuests
                         </td>
                         <td>
-                            @if (ViewContext.HttpContext.User.IsInRole("Registered"))
-                            {
-                                <a href="@Url.Action("Index", "Home")" title="Info"><img src="~/Content/sprite-info.svg"></a>
-                            }
+                            <a href="@Url.Action("MealInfo", "MealManager", new { id = meal.MealId })" title="Info"><img src="~/Content/sprite-info.svg"></a>
                         </td>
                         <td>
                             @if (ViewContext.HttpContext.User.IsInRole("Registered"))

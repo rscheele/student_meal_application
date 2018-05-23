@@ -39,6 +39,6 @@ F:\Asp opdracht\StudentApplication\Domain\bin\Debug\System.Web.WebPages.xml
 F:\Asp opdracht\StudentApplication\Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 F:\Asp opdracht\StudentApplication\Domain\bin\Debug\System.Web.WebPages.Razor.xml
 F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.csproj.CopyComplete
 F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.dll
 F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.pdb
-F:\Asp opdracht\StudentApplication\Domain\obj\Debug\Domain.csproj.CopyComplete
