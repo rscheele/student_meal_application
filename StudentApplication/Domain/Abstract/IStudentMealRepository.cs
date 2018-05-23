@@ -16,6 +16,7 @@ namespace Domain.Abstract
         IEnumerable<StudentMeal> GetStudentMealsForMeal(Meal meal);
         IEnumerable<StudentMeal> GetStudentMealsForStudent(Student student);
         IEnumerable<StudentMeal> GetStudentMealsForStudentCook(Student student);
+        bool CheckForExisitingStudentMeal(int studentId, int mealId);
 
     }
 }

@@ -18,6 +18,19 @@ namespace Domain.Concrete
             context.SaveChanges();
         }
 
+        public bool CheckForExisitingStudentMeal(int studentId, int mealId)
+        {
+            StudentMeal studentMeal = context.StudentMeals.Where(x => x.MealId == mealId && x.Student.StudentId == studentId).FirstOrDefault();
+            if (studentMeal != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void DeleteStudentMeal(StudentMeal studentMeal)
         {
             throw new NotImplementedException();
@@ -35,7 +48,8 @@ namespace Domain.Concrete
 
         public IEnumerable<StudentMeal> GetStudentMealsForStudent(Student student)
         {
-            throw new NotImplementedException();
+            IEnumerable<StudentMeal> studentMeals = context.StudentMeals.Where(x => x.StudentID == student.StudentId);
+            return studentMeals;
         }
 
         public IEnumerable<StudentMeal> GetStudentMealsForStudentCook(Student student)

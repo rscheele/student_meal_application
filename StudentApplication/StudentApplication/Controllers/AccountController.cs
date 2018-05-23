@@ -439,6 +439,7 @@ namespace StudentApplication.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize(Roles = "Registration")]
         public ActionResult AddRole()
         {
             UserManager.AddToRole(User.Identity.GetUserId(), "Registered");

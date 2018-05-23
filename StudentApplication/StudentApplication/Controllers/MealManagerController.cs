@@ -44,10 +44,10 @@ namespace StudentApplication.Controllers
             string userName = User.Identity.Name;
             Student student = studentRepository.GetStudent(userName);
             meal.CurrentGuests = 1;
-            meal.Cook = student;
+            meal.StudentId = student.StudentId;
             meal.MealDateTime = dateTime;
             mealRepository.AddMeal(meal);
-            StudentMeal studentMeal = new StudentMeal {MealId = meal.MealId, Student = student, Cook = true };
+            StudentMeal studentMeal = new StudentMeal {MealId = meal.MealId, StudentID = student.StudentId, Cook = true };
             studentMealRepository.AddStudentMeal(studentMeal);
             return RedirectToAction("ViewMeals", "MealOverview");
         }

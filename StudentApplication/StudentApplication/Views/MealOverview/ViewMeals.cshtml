@@ -84,7 +84,19 @@
                         <td>
                             @if (ViewContext.HttpContext.User.IsInRole("Registered"))
                             {
-                                <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("Index", "Home", new { dateTime = date })'">Inschrijven</button>
+                                if (meal.StudentId == Model.Student.StudentId)
+                                {
+                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("EditMeal", "MealOverview", new { id = meal.MealId })'">Wijzigen</button>
+                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("DeleteMeal", "MealOverview", new { id = meal.MealId })'">Verwijderen</button>
+                                }
+                                else if (Model.StudentMeals.Where(x => x.MealId == meal.MealId).FirstOrDefault() == null)
+                                {
+                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("JoinMeal", "MealOverview", new { id = meal.MealId })'">Inschrijven</button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("DeleteMeal", "MealOverview", new { id = meal.MealId })'">Uitschrijven</button>
+                                }
                             }
                         </td>
                     </tr>

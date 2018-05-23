@@ -13,8 +13,11 @@ namespace Domain.Concrete
 
         public void AddStudent(Student student)
         {
-            context.Students.Add(student);
-            context.SaveChanges();
+            if (context.Students.Where(x => x.Email == student.Email).FirstOrDefault() == null)
+            {
+                context.Students.Add(student);
+                context.SaveChanges();
+            }
         }
 
         public void DeleteStudent(Student student)
