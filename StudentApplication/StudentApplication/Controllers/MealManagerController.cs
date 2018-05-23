@@ -69,6 +69,10 @@ namespace StudentApplication.Controllers
         public ActionResult EditMeal(int id)
         {
             Meal meal = mealRepository.GetMeal(id);
+            if (meal.CurrentGuests >= 2)
+            {
+                return View("ExistingRegistrations");
+            }
             TempData["MealId"] = id;
             return View(meal);
         }
@@ -77,12 +81,13 @@ namespace StudentApplication.Controllers
         [HttpPost]
         public ActionResult EditMeal(Meal meal)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(meal);
-            }
             int id = (int)TempData["MealId"];
             Meal originalMeal = mealRepository.GetMeal(id);
+            if (!ModelState.IsValid)
+            {
+                TempData["MealId"] = id;
+                return View(originalMeal);
+            }
             originalMeal.Name = meal.Name;
             originalMeal.Price = meal.Price;
             originalMeal.MaxGuests = meal.MaxGuests;

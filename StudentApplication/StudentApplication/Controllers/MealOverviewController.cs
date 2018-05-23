@@ -34,7 +34,7 @@ namespace StudentApplication.Controllers
                 dates.Add(dt);
             Student student = new Student();
             List<StudentMeal> studentMeals = new List<StudentMeal>();
-            if (User.Identity.IsAuthenticated)
+            if (User.IsInRole("Registered"))
             {
                 student = studentRepository.GetStudent(User.Identity.Name);
                 studentMeals = studentMealRepository.GetStudentMealsForStudent(student).ToList();

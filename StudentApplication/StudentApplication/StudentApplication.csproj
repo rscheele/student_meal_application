@@ -310,7 +310,7 @@
     <Content Include="Views\MealOverview\Exists.cshtml" />
     <Content Include="Views\MealOverview\Full.cshtml" />
     <Content Include="Views\MealOverview\Joined.cshtml" />
-    <Content Include="Views\MealOverview\ExistingRegistrations.cshtml" />
+    <Content Include="Views\MealManager\ExistingRegistrations.cshtml" />
     <Content Include="Views\MealManager\Deleted.cshtml" />
     <Content Include="Views\MealManager\MealInfo.cshtml" />
     <Content Include="Views\MealOverview\NoMeal.cshtml" />
