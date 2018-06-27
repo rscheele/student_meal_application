@@ -77,3 +77,5 @@ F:\StudentApplication\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cac
 F:\StudentApplication\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
 F:\StudentApplication\UnitTests\obj\Debug\UnitTests.dll
 F:\StudentApplication\UnitTests\obj\Debug\UnitTests.pdb
+D:\ASP_Opdracht\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+D:\ASP_Opdracht\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache

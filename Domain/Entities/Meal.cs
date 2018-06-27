@@ -36,7 +36,8 @@ namespace Domain.Entities
         [Display(Name = "Prijs")]
         [Required(ErrorMessage = "Voer een prijs voor je maaltijd in")]
         // COMMENT OUT THE LINE BELOW IF BROWSER LOCALISATION IS IN ENGLISH
-        [RegularExpression(@"^[0-9]{0,3}[,]{1}[0-9]{2,2}|[0-9]{1,3}$", ErrorMessage = "Geen geldige invoer voor prijs, gebruik de vorm '1,23' voor €1,12 of '5' voor €5,00 of '0' als je maaltijd gratis is.")]
+        //[RegularExpression(@"^[0-9]{0,3}[,]{1}[0-9]{2,2}|[0-9]{1,3}$", ErrorMessage = "Geen geldige invoer voor prijs, gebruik de vorm '1,23' voor €1,12 of '5' voor €5,00 of '0' als je maaltijd gratis is.")]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         [Display(Name = "Ingeschreven gasten")]
         public int CurrentGuests { get; set; }
