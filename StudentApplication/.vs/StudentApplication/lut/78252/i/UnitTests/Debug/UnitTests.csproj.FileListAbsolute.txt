@@ -1,9 +1,0 @@
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\UnitTests\bin\Debug\ApplicationInsights.config
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\UnitTests\bin\Debug\UnitTests.dll.config
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\UnitTests\bin\Debug\UnitTests.dll
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\UnitTests\Debug\UnitTests.csproj.CoreCompileInputs.cache
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\UnitTests\Debug\UnitTests.csproj.CopyComplete
-F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\UnitTests\Debug\UnitTests.dll

@@ -1,0 +1,56 @@
+﻿@model StudentApplication.Models.MealInfoModel
+@{
+    ViewBag.Title = "Maaltijdinfo";
+}
+
+
+<h2>Maaltijdinfo</h2>
+<hr />
+<div class="col-md-12">
+    <p>Je bekijkt nu de maaltijd <b>@Model.Meal.Name</b>, deze maaltijd wordt gekookt door <b>@Model.Meal.Cook.Name</b>.</p>
+    <p>Deze maaltijd zal worden geserveert op <b>@Model.Meal.MealDateTime.ToShortDateString()</b>.</p>
+    <p>De maker heeft als beschrijving meegegeven <b>'@Model.Meal.Description'</b>.</p>
+    <p>De maaltijd zal <b>€ @Model.Meal.Price kosten</b>.</p>
+    <p>De maaltijd zit vol voor <b>@Model.Meal.CurrentGuests / @Model.Meal.MaxGuests</b> plaatsen.</p>
+    @if (Model.Meal.Cook.Email == User.Identity.Name)
+    {
+        <hr />
+        <p><b>Je bent zelf de kok.</b></p>
+        <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("EditMeal", "MealManager", new { id = Model.Meal.MealId })'">Wijzigen</button>
+        <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("DeleteMeal", "MealManager", new { id = Model.Meal.MealId })'">Verwijderen</button>
+    }
+</div>
+<hr />
+<div class="col-md-12">
+    <p>We hebben de volgende inschrijvingen voor deze maaltijd:</p>
+    <br />
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>
+                <p>Naam</p>
+            </th>
+            <th>
+                <p>Email</p>
+            </th>
+            <th>
+                <p>Telefoonnummer</p>
+            </th>
+        </tr>
+        @foreach (var studentMeal in Model.StudentMeals)
+        {
+            <tr>
+                <td>
+                    <p>@studentMeal.Student.Name</p>
+                </td>
+                <td>
+                    <p>@studentMeal.Student.Email</p>
+                </td>
+                <td>
+                    <p>@studentMeal.Student.Phone</p>
+                </td>
+            </tr>
+        }
+    </table>
+    <button class="btn btn-default" type="button" onclick="location.href = '@Url.Action("ViewMeals", "MealOverview")'">Terug</button>
+</div>
+
