@@ -1,0 +1,9 @@
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\StudentApplication\bin\ApplicationInsights.config
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\StudentApplication\bin\StudentApplication.dll.config
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\StudentApplication\bin\StudentApplication.dll
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\StudentApplication\Debug\StudentApplication.csprojAssemblyReference.cache
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\StudentApplication\Debug\StudentApplication.Migrations.role.resources
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\StudentApplication\Debug\StudentApplication.csproj.GenerateResource.cache
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\StudentApplication\Debug\StudentApplication.csproj.CoreCompileInputs.cache
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\StudentApplication\Debug\StudentApplication.csproj.CopyComplete
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\StudentApplication\Debug\StudentApplication.dll

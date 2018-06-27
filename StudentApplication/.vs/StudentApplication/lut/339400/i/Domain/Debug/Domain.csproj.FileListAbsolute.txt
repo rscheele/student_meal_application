@@ -1,0 +1,6 @@
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\Domain\bin\Debug\Domain.dll.config
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\b\Domain\bin\Debug\Domain.dll
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\Domain\Debug\Domain.csprojAssemblyReference.cache
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\Domain\Debug\Domain.csproj.CoreCompileInputs.cache
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\Domain\Debug\Domain.csproj.CopyComplete
+F:\Asp opdracht\StudentApplication\.vs\StudentApplication\lut\0\i\Domain\Debug\Domain.dll
