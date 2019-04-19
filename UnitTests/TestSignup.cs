@@ -26,6 +26,7 @@ namespace UnitTests
         Mock<IStudentMealRepository> mockStudentMealRepository;
         MealOverviewController mealOverviewController;
 
+        // TEST SETUP?
         public void Setup()
         {
             // Create the data (students, meal and studentmeals)
@@ -62,11 +63,15 @@ namespace UnitTests
         [TestMethod]
         public void TestSignupWhenMealIsFullyBooked()
         {
+            // ARRANGE
             Setup();
+
+            // ACT
             // Check if the view returned is the view that should be returned when a meal is fully booked
             var viewResult = mealOverviewController.JoinMeal(1) as ViewResult;
-            Assert.IsTrue(viewResult.ViewName == "Full");
 
+            // ASSERT
+            Assert.IsTrue(viewResult.ViewName == "Full");
             // Check if currentguests has not been updated and is still 3 and not 4 in the mocked repository
             Assert.AreEqual(mockMealRepository.Object.GetMeal(1).CurrentGuests, 3);
             Assert.AreNotEqual(mockMealRepository.Object.GetMeal(1).CurrentGuests, 4);

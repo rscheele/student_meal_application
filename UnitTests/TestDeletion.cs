@@ -56,11 +56,15 @@ namespace UnitTests
         [TestMethod]
         public void TestDeleteMealWithSignups()
         {
+            // ARRANGE
             Setup();
+
+            // ACT
             // Check what happens when the meal is booked by someone and if it returns the correct view
             var viewResult2 = mealManagerController.DeleteMeal(2) as ViewResult;
-            Assert.IsTrue(viewResult2.ViewName == "ExistingRegistrations");
 
+            // ASSERT
+            Assert.IsTrue(viewResult2.ViewName == "ExistingRegistrations");
             // See if the meal is still in the repository
             Assert.AreEqual(mockMealRepository.Object.GetMeal(2), meal2);
         }
